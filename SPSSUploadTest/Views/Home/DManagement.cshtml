@@ -1,0 +1,268 @@
+﻿
+@{
+    ViewBag.Title = "DManagement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="all_reports">
+    <div class="sidebar">
+        <h2>Questions</h2>
+        <ul class="drag_q_list">
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+            <li>What is your Name ?</li>
+
+        </ul>
+    </div>
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex  mb-4 justify-content-between head">
+                        <h4>Visualization Canvas</h4>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="picked_content p-2">
+                        <h4>Side Break : </h4>
+                        <span class="selected_item">
+                            End time <i class="closer">x</i>
+                        </span>
+                        <span class="selected_item">
+                            Start <i class="closer">x</i>
+                        </span>
+                        <span class="selected_item">
+                            End time <i class="closer">x</i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-3">
+                    <div class="picked_content p-2">
+                        <h4>Top Break : </h4>
+                        <span class="selected_item">
+                            End time <i class="closer">x</i>
+                        </span>
+                        <span class="selected_item">
+                            Start <i class="closer">x</i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="attr_icons_a">
+
+                        <div class="d-flex  mb-4 justify-content-end">
+                            <span class="back_remove">
+                                <a href="#">
+                                    <img src="assets/img/back.png"
+                                         alt="">
+                                </a>
+                            </span>
+                            <div class="dropdown mr-3">
+                                <button class="btn btn-secondary filters dropdown-toggle" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                    <i class="fa fa-filter"></i> Filter
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <ul>
+                                        <li>
+                                            <div class="form-check">
+                                                <label class="radiobtn">
+                                                    Default
+                                                    <input type="radio" checked="checked" name="radio">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <label class="radiobtn">
+                                                    Power one
+                                                    <input type="radio" checked="checked" name="radio">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <label class="radiobtn">
+                                                    Dummy
+                                                    <input type="radio" checked="checked" name="radio">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <label class="radiobtn">
+                                                    PowerIN2
+                                                    <input type="radio" checked="checked" name="radio">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <label class="radiobtn">
+                                                    Adence Test Project
+                                                    <input type="radio" checked="checked" name="radio">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <label class="radiobtn">
+                                                    Active
+                                                    <input type="radio" checked="checked" name="radio">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="toggler">
+                                <span class="mr-2">
+                                    Attribute Order <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </span>
+                                <span class="mr-2">
+                                    Percentage <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </span>
+                                <span>
+                                    State <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card-body">
+                        <h2>Respondent Status</h2>
+                        <div class="table-responsive mt-3">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Delhi NCR</th>
+                                        <th scope="col">Bangalore</th>
+                                        <th scope="col">Mumbai</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="first">Total</th>
+                                        <td>361</td>
+                                        <td> 70 52</td>
+                                        <td>51 37 37 </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="first">Total</th>
+                                        <td>361</td>
+                                        <td> 70 52</td>
+                                        <td>51 37 37 </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="first">Total</th>
+                                        <td>361</td>
+                                        <td> 70 52</td>
+                                        <td>51 37 37 </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="first">Total</th>
+                                        <td>361</td>
+                                        <td> 70 52</td>
+                                        <td>51 37 37 </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="first">Total</th>
+                                        <td>361</td>
+                                        <td> 70 52</td>
+                                        <td>51 37 37 </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="first">Total</th>
+                                        <td>361</td>
+                                        <td> 70 52</td>
+                                        <td>51 37 37 </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="first">Total</th>
+                                        <td>361</td>
+                                        <td> 70 52</td>
+                                        <td>51 37 37 </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <a href="#" class="save uni_btn">Save</a>
+                </div>
+                <div class="col-md-5">
+                    <div class="card-body chart_area text-center">
+                        <h2>Chart Options</h2>
+                        <div class="p-4 mt-5 mb-5">
+                            <img src="assets/img/pie.svg" alt="">
+                        </div>
+                        <div class="colors">
+                            <span class="color1"><i></i>Color1</span>
+                            <span class="color2"><i></i>Color2</span>
+                            <span class="color3"><i></i>Color3</span>
+                            <span class="color3"><i></i>Color4</span>
+                        </div>
+                        <div id="piechart" class="d-none"></div>
+                    </div>
+                    <a href="#" class="save uni_btn">Save</a>
+                </div>
+                <div class="col-md-2">
+                    <div class="card-body">
+                        <h2>Saved Charts</h2>
+                        <ul class="chart_list">
+                            <li> <img src="assets/img/pie.svg" alt=""> <span>Pichart</span></li>
+                            <li> <img src="assets/img/gr.svg" alt=""> <span>Pichart</span></li>
+                            <li> <img src="assets/img/gr2.svg" alt=""> <span>Pichart</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

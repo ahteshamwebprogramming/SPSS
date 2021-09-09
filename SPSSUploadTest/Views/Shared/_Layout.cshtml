@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <meta content="public" http-equiv="Cache-control">
+    <meta content="width=device-width, user-scalable=no" name="viewport">
+    <meta content="">
+    <meta content="" name="keywords">
+    <link href="https://dinemenu.com/" rel="canonical">
+    <link href="favicon.png" rel="icon">
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://kit-pro.fontawesome.com/releases/v5.15.2/css/pro.min.css">
+    @Styles.Render("~/CustomCSS/CustomPreloader.css")
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css">
+    @Styles.Render("https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css")
+    @Styles.Render("https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css")
+</head>
+<body class="bg1">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <a class="navbar-brand" href="#"><img src="assets/img/logo.svg" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto ml-lg-5">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Home/Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Project/FileDetails">Project Managment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/DManagement">Data Managment</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/Project/DataReport">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Project/List">Project List</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <div class="d-flex justify-content-between welcome_text">
+                        <div class="w_text">
+                            <h3>Hi @(System.Web.HttpContext.Current.Request.Cookies["Name"].Value),</h3>
+                        </div>
+                    </div>
+                    @*<select class="form-control mr-sm-2" name="" id="">
+                            <option value="">Aug 21, 2021 · Sep 21 2021</option>
+                            <option value="">Aug 21, 2021 · Sep 21 2021</option>
+                            <option value="">Aug 21, 2021 · Sep 21 2021</option>
+                            <option value="">Aug 21, 2021 · Sep 21 2021</option>
+                        </select>*@
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+    <footer>
+        <div class="d-flex justify-content-between">
+            <span class="logout">
+                <a href="/Accounts/Logout"><i class="iconify" data-icon="mdi-light:logout" data-inline="false"></i> Logout</a>
+            </span>
+            <p><a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    @*<script type="text/javascript">
+        $.fn.bsModal = $.fn.modal.noConflict();
+    </script>*@
+    <script src="~/assets/js/bootstrap.bundle.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+
+    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js")
+    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js")
+    @Scripts.Render("https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.js")
+
+    @Scripts.Render("~/CustomJS/CommonJS.js")
+    <script src="~/assets/js/main.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

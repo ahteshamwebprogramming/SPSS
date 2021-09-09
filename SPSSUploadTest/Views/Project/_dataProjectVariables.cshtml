@@ -1,0 +1,33 @@
+﻿<div class="table-responsive" style="@ViewBag.Style_ProjectVariables">
+    <div style="overflow:scroll">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Variable</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Measure</th>
+                    <th scope="col">Labels</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (ViewBag.Data != null)
+                    {
+                        if (ViewBag.Data.Count > 0)
+                        {
+                            foreach (var item in ViewBag.Data)
+                            {
+                                <tr>
+                                    <td>@item.Variables</td>
+                                    <td>@item.Type</td>
+                                    <td>@item.Measure</td>
+                                    <td>@item.Typs</td>
+                                </tr>
+                            }
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

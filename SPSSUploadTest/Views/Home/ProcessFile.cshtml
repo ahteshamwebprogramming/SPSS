@@ -1,0 +1,47 @@
+﻿@using System.Data
+@{
+    ViewBag.Title = "ProcessFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>@(ViewBag.Message)</h2>
+            <table class="table table-bordered table-striped">
+                @{
+                    DataTable dt = ViewBag.filedata;
+                    <thead>
+                        <tr>
+                            @{
+                                foreach (DataColumn item in dt.Columns)
+                                {
+                                    <th>@item</th>
+                                }
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (DataRow item in dt.Rows)
+                            {
+                                <tr>
+                                    @{
+                                        foreach (var column in item.ItemArray)
+                                        {
+                                            <td>@column</td>
+                                        }
+                                    }
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

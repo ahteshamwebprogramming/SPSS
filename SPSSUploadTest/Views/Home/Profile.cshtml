@@ -1,0 +1,176 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="my-account white-bg mt-minus">
+        <div class="row">
+            <div class="col-sm-3 user-sidebar">
+                <div class="nav flex-column nav-pills text-center user-nav pt-5" id="sidebar-admin" role="tablist" aria-orientation="vertical">
+                    <div class="avatar"><img loading="lazy" class="rounded-circle" src="~/assets/img/avatar.png" width="100" height="100" alt="" /></div>
+                    <div class="content mt-2 mb-4">
+                        <h2>Tyler Marker</h2>
+                        <span>457 896 567</span>
+                    </div>
+                    <a class="nav-link active show user-nav-item user-sidebar-item" data-toggle="pill" href="#editaccount" role="tab" aria-controls="editaccount" aria-selected="true">Edit Account</a>
+                    <a class="nav-link user-nav-item user-sidebar-item" data-toggle="pill" href="#changepass" role="tab" aria-controls="changepass" aria-selected="true">Change Password</a>
+                    <a class="nav-link user-nav-item user-sidebar-item" data-toggle="pill" href="#addressbook" role="tab" aria-controls="addressbook" aria-selected="false">Address Book</a>
+
+
+                </div>
+            </div>
+
+            <div class="col-sm-9">
+                <div class="tab-content">
+                    <!-- Tab Edit Acc -->
+                    <div class="tab-pane fade active show" id="editaccount" role="tabpanel" aria-labelledby="user-communicate-tab">
+                        <!--=================
+                        Start Edit Account
+                        ==================-->
+                        <form class="account-form">
+                            <div class="form-header p-3">
+                                <h2 class="mb-0">Edit Account</h2>
+                            </div>
+                            <div class="form-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" placeholder="Name">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" placeholder="Number">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" placeholder="Email">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="date" class="form-control" placeholder="Date of Birth">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <button type="submit" class="btn btn-primary delivery-here">UPDATE INFORMATION</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!--=================
+                        End Edit Account
+                        ==================-->
+                    </div>
+
+                    <!-- Tab Change Pass -->
+                    <div class="tab-pane fade" id="changepass" role="tabpanel" aria-labelledby="user-communicate-tab">
+                        <!--=================
+                        Start Change Pass
+                        ==================-->
+                        <form class="account-form">
+                            <div class="form-header p-3">
+                                <h2 class="mb-0">Change Password</h2>
+                            </div>
+                            <div class="form-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" placeholder="Enter New Password">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" placeholder="Re-Enter New Password">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <button type="submit" class="btn btn-primary delivery-here">CHANGE PASSWORD</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!--=================
+                        End Change Pass
+                        ==================-->
+                    </div>
+
+                    <!-- Tab Book Address -->
+                    <div class="tab-pane fade" id="addressbook" role="tabpanel" aria-labelledby="user-users-tab">
+                        <!--=================
+                        Start Book Address
+                        ==================-->
+                        <form class="account-form">
+                            <div class="form-header p-3">
+                                <h2 class="mb-0">Address</h2>
+                            </div>
+                            <div class="form-body billing">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="customRadio5" name="example">
+                                            <label class="custom-control-label" for="customRadio5">Home Address</label>
+                                        </div>
+                                        <hr>
+                                        <p><span>Alex Jhone</span></p>
+                                        <p>India</p>
+                                        <p>Bayazid Hasan</p>
+                                        <p>Siayana</p>
+                                        <p>Bugrasi</p>
+                                        <p>Basi</p>
+                                        <p>Gao</p>
+                                        <a class="btn-edit" href="#.">Edit</a>
+                                        <a class="btn-delete" href="#.">Delete</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="customRadio1" name="example">
+                                            <label class="custom-control-label" for="customRadio1">Office Address</label>
+                                        </div>
+                                        <hr>
+                                        <p><span>Alex Jhone</span></p>
+                                        <p>India</p>
+                                        <p>Bayazid Hasan</p>
+                                        <p>Siayana</p>
+                                        <p>Bugrasi</p>
+                                        <p>Basi</p>
+                                        <p>Gao</p>
+                                        <a class="btn-edit" href="#.">Edit</a>
+                                        <a class="btn-delete" href="#.">Delete</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="customRadio2" name="example">
+                                            <label class="custom-control-label" for="customRadio2">Shop Address</label>
+                                        </div>
+                                        <hr>
+                                        <p><span>Alex Jhone</span></p>
+                                        <p>India</p>
+                                        <p>Bayazid Hasan</p>
+                                        <p>Siayana</p>
+                                        <p>Bugrasi</p>
+                                        <p>Basi</p>
+                                        <p>Gao</p>
+                                        <a class="btn-edit" href="#.">Edit</a>
+                                        <a class="btn-delete" href="#.">Delete</a>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <button type="button" class="btn btn-primary delivery-here mt-5" data-toggle="modal" data-target="#myModal">+ ADD ADDRESS</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!--=================
+                        End Book Address
+                        ==================-->
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

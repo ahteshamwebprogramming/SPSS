@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <div class="my-account white-bg mt-minus">
+        <div class="row">
+            <div class="offset-2 col-sm-8">
+                <div class="tab-content">
+                    <!-- Tab Edit Acc -->
+                    <div class="tab-pane fade active show" id="editaccount" role="tabpanel" aria-labelledby="user-communicate-tab">
+                        <!--=================
+                        Start Edit Account
+                        ==================-->
+                        <form class="account-form">
+                            <div class="form-header p-3">
+                                <h2 class="mb-0">List Of Projects</h2>
+                            </div>
+                            <div class="form-body">
+                                <div class="table-responsive mt-3">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Project Name</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                if (ViewBag.ProjectList != null)
+                                                {
+                                                    if (ViewBag.ProjectList.Count > 0)
+                                                    {
+                                                        foreach (var item in ViewBag.ProjectList)
+                                                        {
+                                                            <tr>
+                                                                <td>@item.ProjectName1</td>
+                                                                <td style="padding-top: 5px;"><input type="button" onclick="ProcessFile(@item.Id)" class="save uni_btn" value="Process" style="margin-top:0px;margin-bottom:0px;" /></td>
+                                                            </tr>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                        <!--=================
+                        End Edit Account
+                        ==================-->
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+        function ProcessFile(Id) {
+            BlockUI();
+            $.ajax({
+                type: "POST",
+                cotenttype: "application/json;charset=utf-8",
+                url: "/Project/ProcessFile",
+                data: { ProjectId: Id },
+                datatype: "json",
+                success: function (data) {
+                    if (data != null) {
+                        $.alert(data);
+                    }
+                    else {
+                        $.alert("Sorry the response was null");
+                    }
+                    UnblockUI();
+                },
+                error: function (err) {
+                    alert(err.responseText);
+                    UnblockUI();
+                }
+            });
+        }
+    </script>
+}

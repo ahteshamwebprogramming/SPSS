@@ -1,0 +1,107 @@
+﻿<!-- Modal -->
+
+<style>
+    .uni_btn {
+        background: #2ba098 !important;
+        border: 1px solid #2ba098 !important;
+        border-radius: 4px !important;
+        padding: 4px 20px !important;
+        display: inline-block !important;
+        color: #fff !important;
+        font-size: 11px !important;
+        width:auto !important;
+    }
+</style>
+
+<div class="modal fade" id="editProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Edit Project</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="p_block">
+                    <form id="ProjectUpdateForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="">Project ID</label>
+                                <input type="text" class="form-control" name="ProjectId" value="@(ViewBag.model!=null ? ViewBag.model.ProjectId : "")">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Project Name</label>
+                                <input type="text" class="form-control" name="ProjectName" value="@(ViewBag.model!=null ? ViewBag.model.ProjectName : "")">
+                            </div>
+                            <div class="col-md-6 6 mt-3">
+                                <label for="">Status</label>
+                                <select name="Status" id="">
+                                    <option @(ViewBag.model == null ? "" : ViewBag.model.Status == 1 ? "selected" : "") value="1">Active</option>
+                                    <option @(ViewBag.model == null ? "" : ViewBag.model.Status == 0 ? "selected" : "") value="0">InActive</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 6 mt-3">
+                                <label for="">Assign Users</label>
+                                <select name="AssignedUser" id="">
+                                    <option value="0">--Select User--</option>
+                                    @{
+                                        if (ViewBag.Users != null)
+                                        {
+                                            var users = ViewBag.Users as List<SPSSUploadTest.Models.User>;
+                                            if (users.Count > 0)
+                                            {
+                                                var selected = "";
+                                                foreach (var item in users)
+                                                {
+                                                    if (ViewBag.model != null)
+                                                    {
+                                                        if (ViewBag.model.AssignedUser == item.Id)
+                                                        {
+                                                            selected = "selected";
+                                                        }
+                                                    }
+                                                    <option @selected value="@item.Id">@item.Name</option>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-12 6 mt-3">
+                                <label for="">Description</label>
+                                <textarea class="form-control" name="Description" rows="3">@(ViewBag.model!=null ? ViewBag.model.Description : "")</textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="button" class="mt-3 save uni_btn" onclick="UpdateProject()" value="Update" />
+                                <button class="mt-3  save uni_btn btn-danger" style="color: #fff !important;background-color: #dc3545 !important;border-color: #dc3545 !important;" id="closeEditProject" data-dismiss="modal">Cancel</button>
+                                <input type="hidden" name="Id" value="@(ViewBag.model!=null ? ViewBag.model.Id : 0)" />
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            alert("h");
+            $("#UpdateProject").click(function (e) {
+
+                alert("h");
+                e.preventDefault();
+                UpdateProject();
+            });
+        });
+    </script>
+
+}

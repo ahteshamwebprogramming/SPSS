@@ -1,0 +1,231 @@
+﻿
+@{
+    ViewBag.Title = "QualityReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="all_reports">
+    <div class="content-wrapper qualityReport">
+        <div class="container-fluid">
+            <div class="row mt-4">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h2>Quality Report</h2>
+                        <div class="attr_icons_a mt-3">
+                            <div class="d-flex  mb-4 justify-content-between">
+                                <div class="project_name">
+                                    <select name="" id="">
+                                        <option value="">Demo1</option>
+                                        <option value="">Demo2</option>
+                                        <option value="">Demo3</option>
+                                    </select>
+                                </div>
+                                <div class="toggler">
+                                    <span class="mr-2">
+                                        Length of Interview <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </span>
+                                    <span class="mr-2">
+                                        Straight linner <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </span>
+                                    <span>
+                                        Last Interview
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p_block mt-3">
+                            <div class="row">
+                                <div class="col-md-12 pb-2">
+                                    <h3>Length of Interview</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <select name="" id="">
+                                        <option value="">Type</option>
+                                        <option value="">Demo2</option>
+                                        <option value="">Demo3</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="">
+                                        <option value="">Variable</option>
+                                        <option value="">Demo2</option>
+                                        <option value="">Demo3</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="">
+                                        <option value="">Operators</option>
+                                        <option value="">Demo2</option>
+                                        <option value="">Demo3</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="">
+                                        <option value="">Values (in minutes)</option>
+                                        <option value="">Demo2</option>
+                                        <option value="">Demo3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p_block mt-3">
+                            <div class="row">
+                                <div class="col-md-12 pb-2">
+                                    <h3>Straight Linner</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="grpName">
+                                        <div class="inner_selector">
+                                            <ul>
+                                                <li>
+                                                    <label class="containerChk">
+                                                        Delhi/NCR
+                                                        <input type="checkbox" checked="checked">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="containerChk">
+                                                        Banglore
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="containerChk">
+                                                        Mumbai
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="containerChk">
+                                                        Delhi/NCR
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="containerChk">
+                                                        Banglore
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="containerChk">
+                                                        Mumbai
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="">
+                                        <option value="">Operators</option>
+                                        <option value="">Greter Then</option>
+                                        <option value="">Equal to</option>
+                                        <option value="">Less Then</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="number" placeholder="Percentage">
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="p_block mt-3">
+                            <div class="row">
+                                <div class="col-md-12 pb-2">
+                                    <h3>Last interviewed</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <select name="" id="">
+                                        <option value="">Operators</option>
+                                        <option value="">Demo2</option>
+                                        <option value="">Demo3</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="number" placeholder="Values">
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="">
+                                        <option value="">Metric</option>
+                                        <option value="">Day</option>
+                                        <option value="">Month</option>
+                                        <option value="">Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="save uni_btn">Submit</a>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-body chart_area">
+                        <h2>Summary Report</h2>
+                        <div class="table-responsive mt-3">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Quality Parameter</th>
+                                        <th scope="col">Total N</th>
+                                        <th scope="col">Error N</th>
+                                        <th scope="col">Error%</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="first">Length of Interview</th>
+                                        <td>318</td>
+                                        <td>52</td>
+                                        <td>0 </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="first">Strightliner</th>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0 </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row" class="first">Last Interview.</th>
+                                        <td>318</td>
+                                        <td>318</td>
+                                        <td>100.0%</td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

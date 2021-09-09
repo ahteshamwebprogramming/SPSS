@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dash_middle_area">
+    <div class="container-fluid mt-5" style="margin-top:1.5rem !important">
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                @*<div class="d-flex  mb-4 justify-content-between welcome_text">*@
+                <div class="d-flex welcome_text" style="display:inline-block;float:left">
+                    <div class="w_text">
+                        <h2>Welcome to Ipsos</h2>
+                    </div>
+                </div>
+                <div class="search" style=" display:inline-block ;float:right;">
+                    <input type="text" id="SearchProject" placeholder="Search" style="width:200px;">
+                </div>
+                <div class="" style="display:inline-block;float:right;margin-right:10px;">
+                    <input type="button" class="btn btn-secondary" name="AddProject" value="Add Project" style="color: #fff;background-color: #206a65;border-color: #e6f3ff;" />
+                </div>
+            </div>
+        </div>
+        <!-- Row start -->
+        <div id="div_ProjectGrids">
+            @{
+                Html.RenderPartial("~/Views/Home/_projectGrids.cshtml");
+            }
+        </div>
+        <div id="div_EditProject">
+            @{
+                Html.RenderPartial("~/Views/Shared/_EditProject.cshtml");
+            }
+        </div>
+        @{
+            Html.RenderPartial("~/Views/Shared/_DataManagement.cshtml");
+        }
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js")
+    @Scripts.Render("~/CustomJS/Home/Home.js")
+    @Scripts.Render("~/CustomJS/Home/EditProject.js")
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            Initialise();
+
+
+        });
+    </script>
+}

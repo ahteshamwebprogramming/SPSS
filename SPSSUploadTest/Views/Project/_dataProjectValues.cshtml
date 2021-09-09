@@ -1,0 +1,31 @@
+﻿<div class="table-responsive" style="@ViewBag.Style_ProjectValues">
+    <div style="overflow:scroll">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Variable</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">Labels</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (ViewBag.Data != null)
+                    {
+                        if (ViewBag.Data.Count > 0)
+                        {
+                            foreach (var item in ViewBag.Data)
+                            {
+                                <tr>
+                                    <td>@item.Variables</td>
+                                    <td>@item.Value</td>
+                                    <td>@item.Labels</td>
+                                </tr>
+                            }
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

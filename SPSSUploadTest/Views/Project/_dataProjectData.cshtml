@@ -1,0 +1,108 @@
+﻿@using System.Data
+<div class="table-responsive">
+    <div style="overflow:scroll">
+        @{
+            if (ViewBag.ProjectData == true)
+            {
+                <table class="table">
+                    @{
+                        DataTable dt = ViewBag.filedata;
+                        <thead class="thead-dark">
+                            <tr>
+                                @{
+                                    foreach (DataColumn item in dt.Columns)
+                                    {
+                                        <th scope="col">@item</th>
+                                    }
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach (DataRow item in dt.Rows)
+                                {
+                                    <tr>
+                                        @{
+                                            foreach (var column in item.ItemArray)
+                                            {
+                                                <td>@column</td>
+                                            }
+                                        }
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    }
+                </table>
+            }
+            if (ViewBag.ProjectValues == true)
+            {
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Variable</th>
+                            <th scope="col">Value</th>
+                            <th scope="col">Labels</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            if (ViewBag.Data != null)
+                            {
+                                if (ViewBag.Data.Count > 0)
+                                {
+                                    foreach (var item in ViewBag.Data)
+                                    {
+                                        <tr>
+                                            <td>@item.Variables</td>
+                                            <td>@item.Value</td>
+                                            <td>@item.Labels</td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            }
+            if (ViewBag.ProjectVariables == true)
+            {
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Variable</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Measure</th>
+                            <th scope="col">Labels</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            if (ViewBag.Data != null)
+                            {
+                                if (ViewBag.Data.Count > 0)
+                                {
+                                    foreach (var item in ViewBag.Data)
+                                    {
+                                        <tr>
+                                            <td>@item.Variables</td>
+                                            <td>@item.Typs</td>
+                                            <td>@item.Measure</td>
+                                            <td>@item.Labels</td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            }
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('table').DataTable();
+    });
+</script>

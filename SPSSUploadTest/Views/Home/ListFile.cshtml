@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "ListFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>ProjectName</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        if (ViewBag.Files != null)
+                        {
+                            if (ViewBag.Files.Count > 0)
+                            {
+                                foreach (var item in ViewBag.Files)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.ProjectName1</td>
+                                        <td><input type="button" value="Process File" class="btn btn-primary btn-sm" onclick="ProcessFile(@item.Id)" /></td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    });
+    function ProcessFile(Id) {
+        window.location.href = "/Home/ProcessFile?Id=" + Id;
+    }
+</script>
+

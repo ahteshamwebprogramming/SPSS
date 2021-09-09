@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "FileDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .required:after {
+        content: "*";
+        color: red
+    }
+</style>
+
+<div class="all_reports" id="">
+    <div class="content-wrapper qualityReport">
+        <div class="container-fluid">
+            <div class="row mt-4">
+                <div class="col-md-7 m-auto">
+                    <div class="card-body">
+                        <form id="FileDetails" enctype="multipart/form-data">
+                            <h2>Data File Upload</h2>
+                            <div class="p_block mt-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="" class="required">Project Name</label>
+                                        @*<select name="" id="">
+                                                <option value="">Type</option>
+                                                <option value="">Demo2</option>
+                                                <option value="">Demo3</option>
+                                            </select>*@
+                                        <input type="text" class="form-control" placeholder="Project Name" name="ProjectName" />
+                                        @*@Html.TextBox("ProjectName", "", new { @type = "text", @class = "form-control", @placeholder = "Project Name" })*@
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="" class="required">File Type</label>
+                                        <select name="FileType" id="">
+                                            <option value="">Select File Type</option>
+                                            <option value=".sav">SPSS</option>
+                                            <option value=".xlsx">XLSX</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="" class="required">(Upload .xlsx or .xls format files only)</label>
+                                        <input type="file" name="File">
+                                        @*@Html.TextBox("file", "", new { type = "file" })*@
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="save uni_btn" onclick="UploadFile()">Submit</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+        function UploadFile() {
+            BlockUI();
+            var fileUpload = $("#FileDetails").find($('[name="File"]')).get(0);
+            var files = fileUpload.files;
+            var formData = new FormData();
+            // Looping over all files and add it to FormData object
+            //for (var i = 0; i < files.length; i++) {
+            //    formData.append(files[i].name, files[i]);
+            //}
+            formData.append("ProjectName", $("#FileDetails").find($('[name="ProjectName"]')).val());
+            formData.append("FileType", $("#FileDetails").find($('[name="FileType"]')).val());
+            formData.append("File", files[0]);
+            $.ajax({
+                type: 'POST',
+                url: "/Project/UploadFile",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data != null) {
+                        if (data.split("_")[1] == "Success") {
+                            window.location.href = "/Project/List";
+                        }
+                        else {
+                            $.alert(data);
+                        }
+                    }
+                    else {
+                        $.alert("Some error has occurred");
+                    }
+                    UnblockUI();
+                },
+                error: function (result) {
+                    alert(result);
+                    UnblockUI();
+                }
+            });
+        }
+    </script>
+}

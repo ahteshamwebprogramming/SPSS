@@ -1,0 +1,280 @@
+﻿<!-- Modal -->
+<div class="modal fade" id="modalDataManagement" tabindex="-1" role="dialog" aria-labelledby="DataManagementTitle" aria-hidden="true">
+    <div class="all_reports modal-dialog" style="max-width:100%">
+        <div class="content-wrapper qualityReport modal-content" style="background-color: transparent">
+            <!-- MultiStep Form -->
+            <div class="container-fluid" id="grad1">
+                <div class="row justify-content-center mt-0">
+                    <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0  mb-2">
+                        <div class="card px-0 pb-0 mt-3 mb-3">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Data Management</h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mx-0">
+                                    <form id="msform">
+                                        <!-- progressbar -->
+                                        <ul id="progressbar">
+                                            <li class="active" id="account"><strong>Data Upload</strong></li>
+                                            <li id="personal"><strong>Variable</strong></li>
+                                            <li id="payment"><strong>Values</strong></li>
+                                            <li id="payment"><strong>Respondent Data</strong></li>
+                                        </ul> <!-- fieldsets -->
+                                        <fieldset>
+                                            <div class="data_uplaod">
+                                                <h6 class="mb-3">Data File Upload</h6>
+                                                <div class="p_block">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="">Project Name</label>
+                                                            @*<select name="" id="">
+                                                                    <option value="">Type</option>
+                                                                    <option value="">Demo2</option>
+                                                                    <option value="">Demo3</option>
+                                                                </select>*@
+                                                            <input type="text" class="form-control" id="txtProjectName" name="ProjectName" disabled />
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label for="">File Type</label>
+                                                            <select name="FileType" id="">
+                                                                <option value="">Select File Type</option>
+                                                                <option value=".sav">SPSS</option>
+                                                                <option value=".xlsx">XLSX</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6 mt-3">
+                                                            <label for="">(Upload .xlsx or .xls format files only)</label>
+                                                            <input type="file" name="File">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" class="next" />
+                                            <input type="hidden" id="hfProjectId" value="0" />
+                                            <input type="button" name="next" class="action-button" value="Next Step" onclick="UploadFile()" />
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="col_mappng" id="ProjectVariablesList">
+                                                <div class="p_block col_mapping mt-3">
+                                                    <div class="row">
+                                                        <div class="col-md-12 pb-2">
+                                                            <h3>Length of Interview</h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <select name="" id="">
+                                                                <option value="">Type</option>
+                                                                <option value="">Demo2</option>
+                                                                <option value="">Demo3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h6 class="mb-3 mt-3">Variables</h6>
+                                                <div class="table-responsive table-responsive2 mt-3">
+                                                    <table class="table" name="ProjectVariables">
+                                                        <thead class="thead-dark">
+                                                            <tr>
+                                                                <th><input type="checkbox"></th>
+                                                                <th scope="col">Variable</th>
+                                                                <th scope="col">Type</th>
+                                                                <th scope="col">Measure</th>
+                                                                <th scope="col">Labels</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @*<tr>
+                                                                    <th scope="row" class="first"><input type="checkbox"></th>
+                                                                    <td>[RespNum]</td>
+                                                                    <td>Respondent Number</td>
+                                                                </tr>*@
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" class="next" />
+                                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                            <input type="button" name="next" class="action-button" value="Next Step" onclick="getProjectValues()" />
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="col_panel" id="ProjectValuesList">
+                                                <h6 class="mb-3 mt-3">Project Values</h6>
+                                                <div class="table-responsive table-responsive2 mt-3">
+                                                    <table class="table" name="ProjectValues">
+                                                        <thead class="thead-dark">
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th scope="col">Variable</th>
+                                                                <th scope="col">Values</th>
+                                                                <th scope="col">Labels</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row" class="first">5</th>
+                                                                <td>[Dateofinterview]</td>
+                                                                <td>Respondent Status</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" class="next" />
+                                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                            <input type="button" name="next" class="action-button" value="Next Step" onclick="getRespondentData()" />
+                                        </fieldset>
+
+                                        <fieldset>
+                                            <div class="col_panel" id="RespondentsList">
+                                                <h6 class="mb-3 mt-3">Respondent data</h6>
+                                                <div class="table-responsive table-responsive2 mt-3">
+                                                    <table class="table" name="Respondents">
+                                                        <thead class="thead-dark">
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th scope="col">Variable</th>
+                                                                <th scope="col">Values</th>
+                                                                <th scope="col">Labels</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row" class="first">5</th>
+                                                                <td>[Dateofinterview]</td>
+                                                                <td>Respondent Status</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                                <input type="button" name="make_payment" class="next action-button" value="Confirm" />
+                                            </div>
+                                        </fieldset>
+
+                                        <fieldset>
+                                            Last
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="~/assets/css/data_manament.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="~/CustomJS/Projects/dataManagement.js"></script>
+<script>
+    function initializeDataManagmentPopUp(id, projectId, projectName) {
+        // alert(id + '' + projectId + '' + projectName);
+        $('#txtProjectName')[0].value = projectName;
+        $('#hfProjectId').val(id);
+    }
+    function UploadFile() {
+        BlockUI();
+        var fileUpload = $("#msform").find($('[name="File"]')).get(0);
+        var files = fileUpload.files;
+        var formData = new FormData();
+
+        //formData.append("ProjectName", $("#msform").find($('[name="ProjectName"]')).val());
+        formData.append("FileType", $("#msform").find($('[name="FileType"]')).val());
+        formData.append("File", files[0]);
+        formData.append("Id", $('#hfProjectId').val());
+        $.ajax({
+            type: 'POST',
+            url: "/Project/UploadData",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data.status == 200) {
+                    var body = data.body;
+                    PopulateProjectVariables(body);
+                    $(".next")[0].click();
+                }
+                else {
+                    $.alert(data.message);
+                }
+                UnblockUI();
+            },
+            error: function (result) {
+                alert(result);
+                UnblockUI();
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var opacity;
+
+        $(".next").click(function () {
+
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
+
+            //Add Class Active
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+            //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({ opacity: 0 }, {
+                step: function (now) {
+                    // for making fielset appear animation
+                    opacity = 1 - now;
+
+                    current_fs.css({
+                        'display': 'none',
+                        'position': 'relative'
+                    });
+                    next_fs.css({ 'opacity': opacity });
+                },
+                duration: 600
+            });
+        });
+
+        $(".previous").click(function () {
+
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+
+            //Remove class active
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+            //show the previous fieldset
+            previous_fs.show();
+
+            //hide the current fieldset with style
+            current_fs.animate({ opacity: 0 }, {
+                step: function (now) {
+                    // for making fielset appear animation
+                    opacity = 1 - now;
+
+                    current_fs.css({
+                        'display': 'none',
+                        'position': 'relative'
+                    });
+                    previous_fs.css({ 'opacity': opacity });
+                },
+                duration: 600
+            });
+        });
+
+        $('.radio-group .radio').click(function () {
+            $(this).parent().find('.radio').removeClass('selected');
+            $(this).addClass('selected');
+        });
+
+        $(".submit").click(function () {
+            return false;
+        })
+
+    });
+</script>

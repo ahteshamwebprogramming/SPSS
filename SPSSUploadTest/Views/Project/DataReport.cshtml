@@ -1,0 +1,187 @@
+﻿
+@{
+    ViewBag.Title = "DataReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="all_reports">
+    <div class="sidebar">
+        <h2>Filters</h2>
+        <div class="FliterGroup mt-3">
+            <select name="" id="">
+                <option value="">FO1</option>
+                <option value="">FO2</option>
+                <option value="">Gender</option>
+            </select>
+        </div>
+        <div class="grpName mt-3">
+            <h5 class="mb-2">Cities</h5>
+            <ul>
+                <li>
+                    <label class="containerChk">
+                        Delhi/NCR
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </li>
+                <li>
+                    <label class="containerChk">
+                        Banglore
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </li>
+                <li>
+                    <label class="containerChk">
+                        Mumbai
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </li>
+                <li>
+                    <label class="containerChk">
+                        Delhi/NCR
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </li>
+                <li>
+                    <label class="containerChk">
+                        Banglore
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </li>
+                <li>
+                    <label class="containerChk">
+                        Mumbai
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </li>
+
+            </ul>
+        </div>
+        <div class="grpName mt-3">
+            <h5 class="mb-2">Gender</h5>
+            <ul>
+                <li>
+                    <label class="containerChk">
+                        Male
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </li>
+                <li>
+                    <label class="containerChk">
+                        Female
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div class="btns">
+            <a href="#" class="save uni_btn">Apply</a>
+            <a href="#" class=" cancel_btn">Cancel</a>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex  mb-4 justify-content-between head">
+                        <h4>Dara Report</h4>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex  justify-content-start project_selector p-2">
+                        @*<h5 class="pr-3 text-white">Project Name</h5>*@
+                        <div>
+                            <h5 class="pr-3 text-white" style="font-size:14px;display:inline">Project Name</h5>
+                            <select name="Project" id="">
+                                <option value="0">Select Project</option>
+                                @{
+                                    if (ViewBag.Projects != null)
+                                    {
+                                        foreach (var item in ViewBag.Projects)
+                                        {
+                                            <option value="@item.Id">@item.ProjectName1</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                            <h5 class="pr-3 text-white" style="font-size:14px;display:inline">Report Type</h5>
+                            <select name="ReportType" id="">
+                                <option value="0">Select Type</option>
+                                <option value="1">Project Values</option>
+                                <option value="2">Project Variables</option>
+                                <option value="3">Project Data</option>
+                            </select>
+                            <button onclick="ShowData()">Submit</button>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="card-body">
+                    <div id="div_DataProjectData">
+                        @{
+                            Html.RenderPartial("_dataProjectData");
+                        }
+                    </div>
+
+
+                </div>
+                <a href="#" class="save uni_btn">Save</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+        function ShowData() {
+            var project = $("[name='Project']").val();
+            var reportType = $('[name="ReportType"]').val();
+
+            if (project < 1) {
+                $.alert("Please select project first");
+                return;
+            }
+            if (reportType < 1) {
+                $.alert("Please select report type");
+                return;
+            }
+            BlockUI();
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: '/Project/FetchProjectData',
+                data: JSON.stringify({ ProjectId: project, ReportType: reportType }),
+                cache: false,
+                dataType: "html",
+                success: function (data, textStatus, jqXHR) {
+                    $("#div_DataProjectData").html(data);
+                    UnblockUI();
+                },
+                error: function (result) {
+                    alert('Status ' + result.status + ' : ' + result.statusText + ' error :' + result.responseText);
+                    UnblockUI();
+                }
+            });
+        }
+    </script>
+}

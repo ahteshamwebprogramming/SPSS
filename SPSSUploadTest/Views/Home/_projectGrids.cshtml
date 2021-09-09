@@ -1,0 +1,61 @@
+﻿
+@{
+    if (ViewBag.Projects != null)
+    {
+        if (ViewBag.Projects.Count > 0)
+        {
+            decimal row = Math.Ceiling(Convert.ToDecimal(ViewBag.Projects.Count) / Convert.ToDecimal(5));
+            for (int i = 0; i < row; i++)
+            {
+                <div class="row">
+                    @{
+                        int jlength = (ViewBag.Projects.Count < 5 * (i + 1)) ? ViewBag.Projects.Count : (5 * (i + 1));
+                        for (int j = 5 * i; j < jlength; j++)
+                        {
+                            <div class="col" style="max-width:20% !important;">
+                                <div class="user_cont">
+                                    <div class="d-flex justify-content-between user_name" style="padding-top:5px;padding-bottom:5px;">
+                                        <h2 style="line-height:35px;">@(ViewBag.Projects[j].ProjectName)</h2>
+                                        <span class="number">@(ViewBag.Projects[j].RecordCount)</span>
+                                    </div>
+                                    <div style="padding-left: 2px;padding-right: 10px;border-bottom:1px solid #6a984d;padding-bottom:9px;padding-top:5px;border-bottom:1px solid #6a984d;border-top:1px solid #6a984d;">
+                                        <div class="row icon-list dash_middle_area " style="margin:auto">
+                                            <i class="col far fa-info-square" style="font-size:16px;padding-top:5px;cursor:pointer" title="View"></i>
+                                            <i class="col far fa-database" style="font-size: 15px; padding-top: 5px; cursor: pointer" title="Data Management" data-toggle="modal" data-target="#modalDataManagement"
+                                               onclick="initializeDataManagmentPopUp('@ViewBag.Projects[j].Id','@ViewBag.Projects[j].ProjectId','@ViewBag.Projects[j].ProjectName')"></i>
+                                            <i class="col far fa-file" style="font-size: 15px; padding-top: 5px; cursor: pointer" title="Report" onclick="window.location.href = '/Home/DManagement'"></i>
+                                            <i class="col far fa-certificate" style="font-size: 15px; padding-top: 5px; cursor: pointer" title="Quality" onclick="window.location.href = '/Home/QualityReport'"></i>
+                                            @*<i class="col far fa-edit" style="font-size: 15px; padding-top: 5px; cursor: pointer" title="Edit" data-toggle="modal" data-target="#editProjectModal"></i>*@
+                                            <i class="col far fa-edit" style="font-size: 15px; padding-top: 5px; cursor: pointer" title="Edit" onclick="getEditProject(@(ViewBag.Projects[j].Id))"></i>
+                                        </div>
+                                    </div>
+                                    <div class="user_list_task d-flex justify-content-between" style="height:150px;">
+                                        <ul>
+                                            <li>Project Id : @(ViewBag.Projects[j].ProjectId)</li>
+                                            <li>Creation Date : @(ViewBag.Projects[j].CreatedDateS)</li>
+                                            <li>Modification Date : @(ViewBag.Projects[j].ModifiedDateS)</li>
+                                            <li>Owner : @(ViewBag.Projects[j].User)</li>
+                                            <li>Description : @(ViewBag.Projects[j].Description)</li>
+
+                                        </ul>
+                                        @*<span class="view"><a href=""><i class="iconify" data-icon="clarity:eye-show-line"></i></a></span>*@
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            }
+                @*<div>
+                    Html.RenderPartial("~/Views/Shared/_DataManagement.cshtml");
+                </div>*@
+        }
+    }
+}
+<input type="button" style="display:none" data-toggle="modal" data-target="#editProjectModal" id="openEditProject" />
+@*<div id="div_EditProject">
+    @{
+        Html.RenderPartial("~/Views/Shared/_EditProject.cshtml");
+    }
+</div>*@
+

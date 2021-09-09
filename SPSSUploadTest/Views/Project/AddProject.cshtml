@@ -1,0 +1,215 @@
+﻿
+@{
+    ViewBag.Title = "AddProject";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("https://kit-pro.fontawesome.com/releases/v5.15.2/css/pro.min.css")
+@Styles.Render("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css")
+@Styles.Render("~/assets/css/responsive.css")
+
+
+<!-- Middle Content -->
+<div class="all_reports">
+
+    <div class="content-wrapper qualityReport">
+        <div class="container-fluid">
+
+            <div class="row mt-4">
+
+                <div class="col-md-7 m-auto">
+                    <div class="card-body">
+                        <h2>Project Management</h2>
+                        <!-- Tabs -->
+                        <section id="tabs">
+                            <nav>
+                                <div class="nav nav-tabs " id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Add New Project</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Project Details</a>
+                                </div>
+                            </nav>
+                            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    <form id="AddProjectForm">
+                                        <h6 class="mb-3">Add Project</h6>
+                                        <div class="p_block">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="">Project ID</label>
+                                                    <input type="text" class="form-control" name="ProjectId">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="">Project Name</label>
+                                                    <input type="text" class="form-control" name="ProjectName">
+                                                </div>
+                                                <div class="col-md-6 6 mt-3">
+                                                    <label for="">Status</label>
+                                                    <select name="Status" id="">
+                                                        <option value="1">Active</option>
+                                                        <option value="0">InActive</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 6 mt-3">
+                                                    <label for="">Project Type</label>
+                                                    <select name="ProjectType" id="">
+                                                        <option value="0">--Select--</option>
+                                                        <option value="1">File Upload</option>
+                                                        <option value="2">Manually</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 6 mt-3">
+                                                    <label for="">Assign Users</label>
+                                                    <select name="AssignUser" id="">
+                                                        <option value="0">--Select User--</option>
+                                                        @{
+                                                            if (ViewBag.Users != null)
+                                                            {
+                                                                if (ViewBag.Users.Count > 0)
+                                                                {
+                                                                    foreach (var item in ViewBag.Users)
+                                                                    {
+                                                                        <option value="@item.Id">@item.Name</option>
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    </select>
+                                                </div>
+                                                @*<div class="col-md-6 6 mt-3">
+                                                        <label for="">File Type</label>
+                                                        <select name="FileType" id="">
+                                                            <option value="">Select File Type</option>
+                                                            <option value=".sav">SPSS</option>
+                                                            <option value=".xlsx">XLSX</option>
+                                                        </select>
+                                                    </div>*@
+                                                @*<div class="col-md-6 6 mt-3">
+                                                        <label for="" class="required">(Upload .xlsx or .xls format files only)</label>
+                                                        <input type="file" name="File">
+                                                    </div>*@
+                                                <div class="col-md-6 6 mt-3">
+                                                    <label for="">Description</label>
+                                                    <textarea name="Description" class="form-control" rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <button class="mt-3  save uni_btn" name="CreateProject">Create</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                    <h6 class="mb-3">Project Details</h6>
+                                    <div class="row">
+                                        <div class="col-md-3 mb-3">
+
+                                            <input type="text" class="form-control" name="" placeholder="Search...">
+                                        </div>
+                                        <div class="col-md-3 mb-3 ml-auto">
+
+                                            <select name="" id="" class="form-control">
+                                                <option value="">All</option>
+                                                <option value="">Active</option>
+                                                <option value="">InActive</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="p_block">
+                                        <div class="table-responsive table-responsive2 mt-3">
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>Select</th>
+                                                        <th scope="col">Sr. No.</th>
+                                                        <th scope="col">Project Id</th>
+                                                        <th scope="col">Project Name</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Project Type</th>
+                                                        <th scope="col">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row" class="first"><input type="radio"></th>
+                                                        <td>1</td>
+                                                        <td>LINK2017001</td>
+                                                        <td>LINK 2017 001</td>
+                                                        <td>Active</td>
+                                                        <td>File Upload</td>
+                                                        <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Edit Project</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="first"><input type="radio"></th>
+                                                        <td>1</td>
+                                                        <td>LINK2017001</td>
+                                                        <td>LINK 2017 001</td>
+                                                        <td>Active</td>
+                                                        <td>File Upload</td>
+                                                        <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Edit Project</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="first"><input type="radio"></th>
+                                                        <td>1</td>
+                                                        <td>LINK2017001</td>
+                                                        <td>LINK 2017 001</td>
+                                                        <td>Active</td>
+                                                        <td>File Upload</td>
+                                                        <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Edit Project</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="first"><input type="radio"></th>
+                                                        <td>1</td>
+                                                        <td>LINK2017001</td>
+                                                        <td>LINK 2017 001</td>
+                                                        <td>Active</td>
+                                                        <td>File Upload</td>
+                                                        <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Edit Project</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="first"><input type="radio"></th>
+                                                        <td>1</td>
+                                                        <td>LINK2017001</td>
+                                                        <td>LINK 2017 001</td>
+                                                        <td>Active</td>
+                                                        <td>File Upload</td>
+                                                        <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Edit Project</a></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </section>
+                        <!-- ./Tabs -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@{
+    Html.RenderPartial("~/Views/Shared/_EditProject.cshtml");
+}
+@section scripts {
+    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js")
+    @Scripts.Render("~/CustomJS/Projects/AddProject.js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Initialise();
+        });
+    </script>
+}
