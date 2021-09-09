@@ -1,0 +1,64 @@
+.open .sidebar {
+    flex-basis: 279px;
+    flex-shrink: 0;
+    transform: translateX(0px);
+}
+
+@media screen and (max-width: 769px) {
+    .sidebar {
+        transition: transform 0.15s ease-in-out;
+        z-index: 1038;
+        transform: translateX(-340px);
+        width: 18rem!important;
+        position: fixed;
+        z-index: 100;
+        top: 60px;
+        border-radius: 0;
+    }
+    .sidebar .drag_q_list {
+        height: 100vh;
+        padding-bottom: 149px;
+    }
+    .save {
+        margin-bottom: 20px;
+    }
+    .head {
+        font-weight: 500;
+        display: inline-block !important;
+    }
+    .attr_icons_a .justify-content-between {
+        display: inline-block !important;
+    }
+    .back_remove {
+        float: left;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .attr_icons_a .dropdown{  margin-bottom: 10px;
+        margin-top: 10px;}
+    .toggler {
+        margin-top: 5px;
+        float: left;
+    }
+    .main-div {
+      
+        max-width: 100%;
+        padding: 50px 45px 70px 45px;
+    }
+    .login_box{width: auto;
+        display: inline-block;
+        transform: inherit;
+        position: relative;
+        left: auto;
+        top: 0;
+        height: auto;
+        margin: 20px;}
+        .login{height: 100vh;}
+    .login_box .left{width: 100%; height: auto;}
+    .login_box .right{width: 100%;height: auto;}
+    .right .right-text {
+        transform: translate(0%, 2%);
+    }
+    .submit{margin-top: 20px;}
+}

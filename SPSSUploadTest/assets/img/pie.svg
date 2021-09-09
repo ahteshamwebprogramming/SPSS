@@ -1,0 +1,12 @@
+<svg width="198" height="198" viewBox="0 0 198 198" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M198 99C198 44.3238 153.676 0 99 0C44.3238 0 0 44.3238 0 99C0 153.676 44.3238 198 99 198C153.676 198 198 153.676 198 99Z" fill="#206A65"/>
+<g style="mix-blend-mode:overlay">
+<g style="mix-blend-mode:overlay">
+<path d="M99 98.9999H198C198 126.262 186.723 150.942 168.808 168.808L99 98.9999Z" fill="#45B7AF"/>
+</g>
+</g>
+<g opacity="0.4">
+<path opacity="0.4" d="M99 99H198C198 71.7383 186.723 47.0576 168.808 29.1923L99 99Z" fill="black"/>
+</g>
+<path d="M98.9999 99V0C126.262 0 150.942 11.2768 168.808 29.1923L98.9999 99Z" fill="#24988D"/>
+</svg>
